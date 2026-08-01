@@ -1,0 +1,33 @@
+scraper:
+  url: "https://example.com/double"  # User should replace this
+  interval: 15  # seconds
+  validation_delay: 4  # seconds
+
+database:
+  path: "data/history.db"
+
+agent:
+  learning_rate: 0.001
+  gamma: 0.99
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay: 0.995
+  memory_size: 10000
+  batch_size: 64
+  target_update: 10
+  hidden_size: 128
+  model_path: "models/dqn_model.pth"
+
+environment:
+  state_size: 20  # Number of previous results to consider
+  features:
+    - color_history
+    - color_frequency
+    - sequence_length
+    - color_alternation
+    - last_number
+    - time_diff
+
+metrics:
+  window_sizes: [100, 500]
+  save_interval: 10
